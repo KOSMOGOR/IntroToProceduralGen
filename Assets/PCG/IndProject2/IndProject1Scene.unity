@@ -146,7 +146,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.38, y: 0.38, z: 0.38}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -163,16 +163,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f931d8b021313b1e2bb0524ed390bdcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 50
-  y: 50
-  iterations: 4
+  x: 100
+  y: 100
+  rockSpawnChance: 0.6
+  automataIterations: 2
   emptyToRockThreshhold: 5
-  rockToRockThreshhold: 4
+  rockToRockThreshhold: 5
   rockSize: 0.5
   rockPrefab: {fileID: -8677209565001857975, guid: e402f112e9bd69b7fb493059e9889252, type: 3}
-  waitSeconds: 0.25
+  waitSecondsAutomata: 0.5
+  diggerIterations: 5
+  waitSecondsDigger: 0.05
   probChangeDir: 0.05
-  probChangeDirInc: 0.05
+  probChangeDirInc: 0.01
+  probDig: 0.5
+  maxDiggerMoves: 30
 --- !u!1 &831008243
 GameObject:
   m_ObjectHideFlags: 0
