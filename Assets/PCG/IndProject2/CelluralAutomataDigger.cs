@@ -15,8 +15,8 @@ public class CelluralAutomataDigger : MonoBehaviour
     public int automataIterations = 5;
     public int emptyToRockThreshhold = 4; // minimum rocks around for empty cell to become rock
     public int rockToRockThreshhold = 1; // minimum rocks around for rock to stay rock
-    public float rockSize = 0.5f;
-    public Project2Cell rockPrefab;
+    public float cellSize = 0.5f;
+    public Project2Cell cellPrefab;
     public float waitSecondsAutomata = 0.25f;
     [Header("Diggers")]
     public int diggerIterations = 3;
@@ -59,10 +59,10 @@ public class CelluralAutomataDigger : MonoBehaviour
         cells = new Project2Cell[x, y];
         for (int x1 = 0; x1 < x; ++x1) {
             for (int y1 = 0; y1 < y; ++y1) {
-                Project2Cell cell = Instantiate(rockPrefab, transform);
-                cell.transform.localPosition = Vector3.right * (x1 * rockSize) + Vector3.down * (y1 * rockSize) +
-                        Vector3.left * (x * rockSize / 2) + Vector3.up * (y * rockSize / 2);
-                cell.transform.localScale *= rockSize;
+                Project2Cell cell = Instantiate(cellPrefab, transform);
+                cell.transform.localPosition = transform.right * (x1 * cellSize) - transform.forward * (y1 * cellSize) - // main position
+                        transform.right * (x * cellSize / 2) + transform.forward * (y * cellSize / 2); // makes cell(x / 2, y / 2) in center
+                cell.transform.localScale *= cellSize;
                 cell.x = x1; cell.y = y1;
                 cells[x1, y1] = cell;
                 if (Random.value <= rockSpawnChance) cells[x1, y1].SetRock(true);

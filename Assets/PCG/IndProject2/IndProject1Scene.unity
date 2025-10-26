@@ -169,8 +169,8 @@ MonoBehaviour:
   automataIterations: 2
   emptyToRockThreshhold: 5
   rockToRockThreshhold: 5
-  rockSize: 0.5
-  rockPrefab: {fileID: -8677209565001857975, guid: e402f112e9bd69b7fb493059e9889252, type: 3}
+  cellSize: 0.5
+  cellPrefab: {fileID: -8677209565001857975, guid: e402f112e9bd69b7fb493059e9889252, type: 3}
   waitSecondsAutomata: 0.5
   diggerIterations: 5
   waitSecondsDigger: 0.05
@@ -360,7 +360,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:
@@ -385,13 +385,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386246462}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: 0.3736123, y: 0.19996412, z: -0.08282785, w: 0.90198}
+  m_LocalPosition: {x: -5, y: 7, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 15, z: 0}
 --- !u!114 &1386246466
 MonoBehaviour:
   m_ObjectHideFlags: 0
