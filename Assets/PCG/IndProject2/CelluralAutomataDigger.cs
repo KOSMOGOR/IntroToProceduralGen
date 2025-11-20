@@ -26,6 +26,8 @@ public class CelluralAutomataDigger : MonoBehaviour
     public float probDig = 0.25f; // probability for Blind Digger to mine orthogonal cells (calculated independently for every cell)
     public int maxDiggerMoves = 20; // maximum moves that each Blind Digger can make
 
+    public bool finished = false;
+
     [HideInInspector] public Project2Cell[,] cells; // matrix with all cells
 
     void Start() {
@@ -33,6 +35,7 @@ public class CelluralAutomataDigger : MonoBehaviour
     }
 
     IEnumerator CreateMap() {
+        finished = false;
         SpawnRocks();
         yield return new WaitForSeconds(waitSecondsAutomata); // waiting
         for (int i = 0; i < automataIterations; ++i) {
@@ -53,6 +56,7 @@ public class CelluralAutomataDigger : MonoBehaviour
             yield return new WaitForSeconds(waitSecondsAutomata); // waiting
         }
         print("Finished automata 2");
+        finished = true;
     }
 
     // function for generating for rocks at start
@@ -198,6 +202,14 @@ public class CelluralAutomataDigger : MonoBehaviour
     Project2Cell TryGetCell(int x, int y) {
         if (x >= 0 && x < this.x && y >= 0 && y < this.y) return cells[x, y];
         return null;
+    }
+
+    public void StartRandomDigger() {
+        GenerateClusters();
+        var cluster = clusters.Select((c, i) => new {c, i}).SelectRandom();
+        StartCoroutine(DiggerIter(
+            cluster.c, cluster.i
+        ));
     }
 }
 
